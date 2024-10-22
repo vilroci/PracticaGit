@@ -1,0 +1,187 @@
+/* Variables y reset */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --text-color: #333;
+    --light-bg: #f5f6fa;
+    --spacing: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Header y navegación */
+.header {
+    background: var(--primary-color);
+    padding: 1rem var(--spacing);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+/* Estilos del carrusel */
+.carousel {
+    position: relative;
+    width: 100vw; /* Ocupa todo el ancho de la ventana */
+    height: 600px;
+    overflow: hidden;
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-inner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-inner img:first-child {
+    opacity: 1;
+}
+
+/* Estilos de la sección principal */
+main {
+    width: 100%;
+    padding: 2rem 0; /* Solo padding vertical */
+    flex: 1; /* Hace que el main ocupe todo el espacio disponible */
+    margin-bottom: 60px; /* Espacio para el footer */
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Estilos de las cards */
+.card-container {
+    display: flex;
+    justify-content: center; /* Centra las cards horizontalmente */
+    gap: 20px; /* Espacio uniforme entre cards */
+    padding: 0 2rem; /* Padding horizontal para no pegar a los bordes */
+    flex-wrap: nowrap; /* Evita que las cards se envuelvan */
+}
+
+.card {
+    flex: 1; /* Distribuye el espacio disponible equitativamente */
+    min-width: 250px; /* Ancho mínimo para cada card */
+    max-width: 300px; /* Ancho máximo para cada card */
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0; /* Elimina márgenes */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.card-info {
+    display: none;
+    margin-top: 1rem;
+}
+
+/* Estilos del footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 0.5rem 0; /* Reducido de 1rem a 0.5rem */
+    width: 100%;
+    height: 30px; /* Altura fija más pequeña */
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: var(--spacing);
+    margin-top: var(--spacing);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 1024px) {
+    .card-container {
+        flex-wrap: wrap; /* Permite que las cards se envuelvan en pantallas pequeñas */
+        justify-content: center;
+    }
+    
+    .card {
+        flex: 0 1 calc(50% - 20px); /* 2 cards por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex: 0 1 100%; /* 1 card por fila en pantallas muy pequeñas */
+        margin: 10px 0;
+    }
+}
+

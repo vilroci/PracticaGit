@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información sobre RAID</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Filoso</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Raid</a></li>
+                <li><a href="LVM.html">LVM</a></li>
+                <li><a href="indexx.html">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <section class="carousel">
+            <div class="carousel-inner">
+                <img src="https://www.tecnozero.com/wp-content/uploads/2017/12/raid_0.png" alt="RAID 0">
+                <img src="https://www.tecnozero.com/wp-content/uploads/2017/12/raid-1.png" alt="RAID 1">
+                <img src="https://www.tecnozero.com/wp-content/uploads/2017/12/raid-5.png" alt="RAID 5">
+                <img src="https://www.tecnozero.com/wp-content/uploads/2017/12/raid-10.png" alt="RAID 10">
+            </div>
+        </section>
+
+        <section class="raid-info">
+            <h1>Tipos de RAID</h1>
+            <div class="card-container">
+                <div class="card" onclick="toggleInfo('raid0')">
+                    <h2>RAID 0</h2>
+                    <div class="card-info" id="raid0">
+                        <p>RAID 0 divide los datos equitativamente entre dos o más discos sin información de paridad ni redundancia.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="toggleInfo('raid1')">
+                    <h2>RAID 1</h2>
+                    <div class="card-info" id="raid1">
+                        <p>RAID 1 crea una copia exacta (espejo) de un conjunto de datos en dos o más discos.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="toggleInfo('raid5')">
+                    <h2>RAID 5</h2>
+                    <div class="card-info" id="raid5">
+                        <p>RAID 5 distribuye la paridad junto con los datos y requiere al menos 3 discos.</p>
+                    </div>
+                </div>
+                <div class="card" onclick="toggleInfo('raid10')">
+                    <h2>RAID 10</h2>
+                    <div class="card-info" id="raid10">
+                        <p>RAID 10 es una combinación de RAID 1 y RAID 0, ofreciendo mejor rendimiento y redundancia.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Guía LVM - Recursos para administradores de sistemas</p>
+    </footer>
+
+    <script>
+        function toggleInfo(id) {
+            const info = document.getElementById(id);
+            info.style.display = info.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Carrusel automático
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-inner img');
+
+        function nextSlide() {
+            slides[currentSlide].style.opacity = 0;
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.opacity = 1;
+        }
+
+        setInterval(nextSlide, 3000);
+    </script>
+</body>
+</html>

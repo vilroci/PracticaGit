@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía LVM - Logical Volume Management</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">Filoso</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Raid</a></li>
+                <li><a href="LVM.html">LVM</a></li>
+                <li><a href="indexx.html">Sobre Nosotros</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Logical Volume Management</h1>
+            <p>La solución flexible para gestionar el almacenamiento en Linux</p>
+        </section>
+       
+        <section id="introduccion" class="section">
+            <h2>¿Qué es LVM?</h2>
+            <div class="content-box">
+                <p>LVM (Logical Volume Management) es un sistema de administración de almacenamiento para el kernel de Linux que proporciona un nivel de abstracción entre los dispositivos de almacenamiento físico y los sistemas de archivos.</p>
+                <div class="feature-card">
+                    <h3>Características Principales</h3>
+                    <ul>
+                        <li>Gestión flexible del almacenamiento</li>
+                        <li>Redimensionamiento en caliente</li>
+                        <li>Snapshots del sistema</li>
+                        <li>Migración de datos en vivo</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="componentes" class="section">
+            <h2>Componentes de LVM</h2>
+            <div class="grid-container">
+                <div class="component-card">
+                    <h3>Physical Volumes (PV)</h3>
+                    <p>Dispositivos físicos de almacenamiento formateados para LVM</p>
+                </div>
+                <div class="component-card">
+                    <h3>Volume Groups (VG)</h3>
+                    <p>Grupo de volúmenes físicos que forman un pool de almacenamiento</p>
+                </div>
+                <div class="component-card">
+                    <h3>Logical Volumes (LV)</h3>
+                    <p>Volúmenes lógicos creados desde el grupo de volúmenes</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ventajas" class="section">
+            <h2>Ventajas de usar LVM</h2>
+            <div class="advantages-container">
+                <div class="advantage-item">
+                    <div class="icon">🔄</div>
+                    <h3>Flexibilidad</h3>
+                    <p>Redimensiona volúmenes sin interrumpir el servicio</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="icon">📸</div>
+                    <h3>Snapshots</h3>
+                    <p>Crea copias instantáneas del sistema</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="icon">🔍</div>
+                    <h3>Gestión Simplificada</h3>
+                    <p>Administración centralizada del almacenamiento</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="comandos" class="section">
+            <h2>Comandos Comunes</h2>
+            <div class="commands-container">
+                <div class="command-box">
+                    <h3>Crear Physical Volume</h3>
+                    <code>pvcreate /dev/sdb</code>
+                </div>
+                <div class="command-box">
+                    <h3>Crear Volume Group</h3>
+                    <code>vgcreate mi_vg /dev/sdb</code>
+                </div>
+                <div class="command-box">
+                    <h3>Crear Logical Volume</h3>
+                    <code>lvcreate -L 10G -n mi_lv mi_vg</code>
+                </div>
+                <div class="command-box">
+                    <h3>Extender Logical Volume</h3>
+                    <code>lvextend -L +5G /dev/mi_vg/mi_lv</code>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Guía LVM - Recursos para administradores de sistemas</p>
+    </footer>
+
+</body>
+</html>
